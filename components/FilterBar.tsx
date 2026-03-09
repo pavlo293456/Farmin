@@ -9,11 +9,12 @@ interface FilterBarProps {
 }
 
 const TYPE_FILTERS = [
-  { id: 'all',    label: 'All',     emoji: '📍' },
-  { id: 'market', label: 'Markets', emoji: '🏪' },
-  { id: 'farm',   label: 'Farms',   emoji: '🌾' },
-  { id: 'upick',  label: 'U-Pick',  emoji: '🍓' },
-  { id: 'store',  label: 'Stores',  emoji: '🌿' },
+  { id: 'all',        label: 'All',        emoji: '📍' },
+  { id: 'market',     label: 'Markets',    emoji: '🏪' },
+  { id: 'farm',       label: 'Farms',      emoji: '🌾' },
+  { id: 'upick',      label: 'U-Pick',     emoji: '🍓' },
+  { id: 'restaurant', label: 'Eat Local',  emoji: '🍽️' },
+  { id: 'store',      label: 'Stores',     emoji: '🌿' },
 ]
 
 export default function FilterBar({ onFilter }: FilterBarProps) {
@@ -44,7 +45,7 @@ export default function FilterBar({ onFilter }: FilterBarProps) {
   return (
     <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-2xl px-4 pointer-events-none">
       <div className="pointer-events-auto">
-        <div className="flex gap-2 justify-center mb-2">
+        <div className="flex gap-2 justify-center mb-2 flex-wrap">
           {TYPE_FILTERS.map((t) => (
             <button
               key={t.id}
