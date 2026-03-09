@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Lora', Georgia, serif;
+  --farm-green: #2d6a4f;
+  --farm-light: #74c69d;
+  --farm-cream: #f8f4ec;
+  --farm-brown: #6b4226;
+  --farm-accent: #f4a261;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--farm-cream);
+  color: #1a1a1a;
+}
+
+.leaflet-container {
+  font-family: var(--font-sans) !important;
+}
