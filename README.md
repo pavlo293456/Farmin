@@ -1,90 +1,78 @@
-# Farmin
-farmin, eatin, sellin
-[README.md](https://github.com/user-attachments/files/25848412/README.md)
-# 🌾 FarmSearch Edmonton
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-An MVP web app to discover local farm food, farmers markets, and organic stores near Edmonton, Alberta.
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-## Features
-- 🗺️ Interactive map with 31 real Edmonton-area locations
-- 📍 Colour-coded pins: Markets (green), Farms (orange), Stores (brown)
-- 🔍 Filter by location type and product category
-- 🃏 Tap any pin for a popup card with details, hours, and website link
-- 📱 Mobile-friendly, responsive layout
-
-## Tech Stack
-- **Next.js 14** (App Router)
-- **React 18** + **TypeScript**
-- **TailwindCSS**
-- **Leaflet.js** (no API key required)
-
-## Quick Start
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Run locally
-npm run dev
-
-# 3. Open in browser
-http://localhost:3000
-```
-
-No API keys. No accounts. Just clone and run.
-
-## Project Structure
-
-```
-src/
-  app/
-    page.tsx          # Homepage (full-screen map)
-    layout.tsx        # Root layout
-    globals.css       # Global styles + Tailwind
-  components/
-    Map.tsx           # Leaflet map with dynamic import
-    FilterBar.tsx     # Type + product category filters
-    PopupCard.tsx     # Location detail popup
-  data/
-    locations.ts      # All 31 Edmonton locations (seed data)
-```
-
-## Adding New Locations
-
-Edit `src/data/locations.ts` and add an entry to the `LOCATIONS` array:
-
-```ts
-{
-  id: 'unique-id',
-  name: 'Farm Name',
-  type: 'farm',           // 'market' | 'farm' | 'store' | 'csa'
-  address: '123 Main St, Edmonton, AB',
-  lat: 53.5461,           // Get from Google Maps
-  lng: -113.4938,
-  description: 'Short description.',
-  products: ['vegetables', 'eggs'],
-  hours: 'Sat 9AM–2PM',
-  website: 'https://example.com',
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Lora', Georgia, serif;
+  --farm-green: #2d6a4f;
+  --farm-light: #74c69d;
+  --farm-cream: #f8f4ec;
+  --farm-brown: #6b4226;
+  --farm-accent: #f4a261;
 }
-```
 
-## Deployment (Vercel)
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-```bash
-# Install Vercel CLI
-npm i -g vercel
+html, body {
+  height: 100%;
+  font-family: var(--font-sans);
+  background: var(--farm-cream);
+  color: #1a1a1a;
+}
 
-# Deploy
-vercel
+/* Leaflet map overrides */
+.leaflet-container {
+  font-family: var(--font-sans) !important;
+}
 
-# Follow prompts — no env vars needed
-```
+.leaflet-popup-content-wrapper {
+  border-radius: 1rem !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
 
-Or connect your GitHub repo to [vercel.com](https://vercel.com) for auto-deployments.
+.leaflet-popup-content {
+  margin: 0 !important;
+  width: 280px !important;
+}
 
-## Data Sources
-All market and farm data is sourced from publicly available Edmonton-area listings.
-Coordinates are approximate and should be verified before production use.
+.leaflet-popup-tip-container {
+  display: none;
+}
 
----
-Built as an MVP concept for local food discovery in Edmonton.
+/* Custom pin styles */
+.farm-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.farm-pin:hover {
+  transform: rotate(-45deg) scale(1.2);
+}
+
+.farm-pin-inner {
+  transform: rotate(45deg);
+  font-size: 14px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
