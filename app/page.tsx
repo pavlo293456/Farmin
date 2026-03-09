@@ -19,13 +19,13 @@ const Map = dynamic(() => import('@/components/Map'), {
 
 export default function HomePage() {
   const [filteredIds, setFilteredIds] = useState<Set<string> | null>(null)
-
   const count = filteredIds ? filteredIds.size : LOCATIONS.length
 
   return (
     <main className="relative w-screen h-screen overflow-hidden">
       <Map filteredIds={filteredIds} />
 
+      {/* Top nav */}
       <header className="absolute top-0 left-0 right-0 z-[999] px-4 pt-4 pb-2 pointer-events-none">
         <div className="pointer-events-auto flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center gap-2 bg-white rounded-2xl shadow-card px-4 py-2.5">
@@ -35,15 +35,33 @@ export default function HomePage() {
               <div className="text-xs text-gray-400 leading-tight">Edmonton, AB</div>
             </div>
           </div>
-
           <div className="bg-white rounded-2xl shadow-card px-4 py-2.5 text-sm font-medium text-gray-700">
             <span className="text-farm-green font-bold">{count}</span> locations
           </div>
         </div>
       </header>
 
+      {/* Filters */}
       <div className="absolute top-20 left-0 right-0 z-[999]">
         <FilterBar onFilter={setFilteredIds} />
+      </div>
+
+      {/* Legend */}
+      <div className="absolute bottom-4 left-4 z-[999] pointer-events-none">
+        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-card px-3 py-2 flex flex-col gap-1">
+          {[
+            { color: '#2d6a4f', emoji: '🏪', label: 'Market' },
+            { color: '#f4a261', emoji: '🌾', label: 'Farm' },
+            { color: '#e63946', emoji: '🍓', label: 'U-Pick' },
+            { color: '#7c3aed', emoji: '🍽️', label: 'Restaurant' },
+            { color: '#6b4226', emoji: '🌿', label: 'Store' },
+          ].map(({ color, emoji, label }) => (
+            <div key={label} className="flex items-center gap-2 text-xs text-gray-600">
+              <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: color }} />
+              <span>{emoji} {label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   )
