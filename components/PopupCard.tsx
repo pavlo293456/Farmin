@@ -23,7 +23,7 @@ export default function PopupCard({ location, onClose }: PopupCardProps) {
           {location.hours && <p className="text-xs text-gray-600 mt-1">🕒 {location.hours}</p>}
           {location.website && (
             <a href={location.website} target="_blank" rel="noreferrer" className="inline-block text-xs text-farm-green mt-1 hover:underline">
-              Visit website ↗
+              Open website ↗
             </a>
           )}
           <button onClick={onClose} className="block text-xs text-farm-green mt-2">

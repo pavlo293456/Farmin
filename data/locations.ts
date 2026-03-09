@@ -26,6 +26,7 @@ export const TYPE_COLORS: Record<LocationType, string> = {
 }
 
 export const PRODUCT_CATEGORIES = [
+  // Shared tags used by both marker details and product filters.
   { id: 'vegetables', label: 'Vegetables', emoji: '🥕' },
   { id: 'fruit', label: 'Fruit', emoji: '🍎' },
   { id: 'eggs', label: 'Eggs', emoji: '🥚' },
