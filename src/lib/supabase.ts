@@ -20,11 +20,3 @@ export type Vendor = {
   website:       string | null
   gallery:       string[]
   is_published:  boolean
-}
-```
-
-5. Click **Commit changes**
-
-Also check that `package.json` has this in the dependencies section — open it in GitHub and confirm you see:
-```
-"@supabase/supabase-js": "^2.39.0"
