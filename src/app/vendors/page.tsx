@@ -16,7 +16,7 @@ export default function VendorsPage() {
       .select('*')
       .eq('is_published', true)
       .order('business_name')
-      .then(({ data }) => {
+      .then(({ data }: { data: Vendor[] | null }) => {
         setVendors(data || [])
         setLoading(false)
       })
