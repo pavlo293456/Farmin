@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { supabase, type Vendor } from '@/lib/supabase'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 
 export default function VendorProfilePage({ params }: { params: { id: string } }) {
   const [vendor,  setVendor]  = useState<Vendor | null>(null)
@@ -16,7 +15,7 @@ export default function VendorProfilePage({ params }: { params: { id: string } }
       .eq('id', params.id)
       .eq('is_published', true)
       .single()
-      .then(({ data }) => {
+      .then(({ data }: { data: Vendor | null }) => {
         setVendor(data)
         setLoading(false)
       })
