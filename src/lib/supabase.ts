@@ -20,3 +20,4 @@ export type Vendor = {
   website:       string | null
   gallery:       string[]
   is_published:  boolean
+}
