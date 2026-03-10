@@ -129,6 +129,7 @@ export default function HomePage() {
           </div>
 
           {/* Count badge */}
+          <a href="/vendors" className="bg-white rounded-2xl shadow-card px-4 py-2.5 text-sm font-semibold text-farm-green hidden sm:block flex-shrink-0 hover:shadow-hover transition-shadow">Vendors 🌾</a>
           <div className="bg-white rounded-2xl shadow-card px-4 py-2.5 text-sm font-medium text-gray-700 flex-shrink-0">
             <span className="font-bold" style={{ color: currentMode.color }}>{count}</span>
             <span className="text-gray-500"> spots</span>
