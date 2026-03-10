@@ -72,6 +72,18 @@ html, body {
   font-size: 14px;
 }
 
+/* Utility classes */
+.font-display { font-family: var(--font-display); }
+.shadow-card  { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.shadow-hover { box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+.bg-farm-cream   { background-color: #f8f4ec; }
+.bg-farm-green   { background-color: #2d6a4f; }
+.text-farm-green { color: #2d6a4f; }
+.text-farm-brown { color: #6b4226; }
+.border-farm-green  { border-color: #2d6a4f; }
+.border-farm-accent { border-color: #f4a261; }
+.bg-farm-accent  { background-color: #f4a261; }
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
