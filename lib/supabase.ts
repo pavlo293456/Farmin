@@ -1,9 +1,15 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl  = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-export const supabase = createClient(supabaseUrl, supabaseAnon)
+const fallbackUrl = 'https://example.supabase.co'
+const fallbackAnonKey = 'public-anon-key'
+
+export const supabase = createClient(
+  supabaseUrl || fallbackUrl,
+  supabaseAnon || fallbackAnonKey,
+)
 
 export type Vendor = {
   id:            string
